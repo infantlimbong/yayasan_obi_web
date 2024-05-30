@@ -1,6 +1,6 @@
-// ArticleDetail.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getArticle } from './articleService';
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -11,12 +11,8 @@ const ArticleDetail = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/articles/${id}`);
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await res.json();
-        setArticle(data);
+        const response = await getArticle(id);
+        setArticle(response.data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -40,10 +36,10 @@ const ArticleDetail = () => {
   }
 
   return (
-    <div className='bg-gray-200 rounded-md p-5'>
-      <h1 className='font-bold text-2xl'>{article.title}</h1>
-      <p>{article.content}</p>
-      <p className='text-gray-600'>Author: {article.author}</p>
+    <div className="bg-gray-200 rounded-md p-5">
+      <h1 className="font-bold text-2xl mb-2">{article.title}</h1>
+      <p className="mb-4 whitespace-pre-wrap">{article.content}</p>
+      <p className="text-gray-600">Author: {article.author}</p>
     </div>
   );
 };

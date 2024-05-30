@@ -2,11 +2,11 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <section className='md:px-20 md:pt-14'>
+    <div className='md:pt-14'>
       <div className='md:w-1/2'>
         <h1 className="text-4xl font-semibold">Lorem ipsum dolor sit amet consectetur.</h1>
         <p className='my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div className="flex gap-x-3">
+        <div className="flex gap-x-2">
           <button className='w-24 py-2 text-white font-semibold bg-red-600 rounded-sm hover:bg-opacity-70 transition-all duration-300'>Button</button>
           <button className='w-24 py-2 text-red-600 font-semibold bg-white border border-red-600 rounded-sm hover:bg-red-600 hover:text-white transition-all duration-300'>Button</button>
         </div>
@@ -81,7 +81,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
